@@ -10,6 +10,8 @@ add this line to your module build.gradle dependecies block:
                     maven { url 'https://jitpack.io' }
                 }
             }
+
+
         implementation 'com.github.shvansheikha:CustomeBanner:1.0.0'
 
 ## BaseCode
