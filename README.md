@@ -4,7 +4,7 @@
 ### Gradle
 add this line to your module build.gradle dependecies block:
 
-implementation 'com.github.shvansheikha:CustomeBanner:1.0.0'
+        implementation 'com.github.shvansheikha:CustomeBanner:1.0.0'
 
 ## BaseCode
 
