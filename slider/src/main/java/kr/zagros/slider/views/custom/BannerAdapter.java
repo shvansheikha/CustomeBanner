@@ -15,6 +15,7 @@ import kr.zagros.slider.banners.Banner;
 import kr.zagros.slider.views.fragments.BannerFragment;
 import kr.zagros.slider.views.fragments.EmptyViewFragment;
 
+
 public class BannerAdapter extends FragmentStatePagerAdapter {
     private List<Banner> banners = new ArrayList<>();
 
@@ -28,7 +29,7 @@ public class BannerAdapter extends FragmentStatePagerAdapter {
         this.banners=banners;
     }
 
-    public BannerAdapter(FragmentManager fm, boolean isLooping, int layoutDirection,List<Banner> banners) {
+    public BannerAdapter(FragmentManager fm, boolean isLooping, int layoutDirection, List<Banner> banners) {
         super(fm);
         this.isLooping = isLooping;
         this.banners=banners;

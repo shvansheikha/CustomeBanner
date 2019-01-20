@@ -6,6 +6,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
 
+
 public class DrawableBanner extends Banner implements Parcelable {
     private int drawable;
 
@@ -32,7 +33,7 @@ public class DrawableBanner extends Banner implements Parcelable {
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<DrawableBanner> CREATOR = new Parcelable.Creator<DrawableBanner>() {
+    public static final Creator<DrawableBanner> CREATOR = new Creator<DrawableBanner>() {
         @Override
         public DrawableBanner createFromParcel(Parcel in) {
             return new DrawableBanner(in);

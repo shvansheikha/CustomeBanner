@@ -117,7 +117,8 @@ public class SlideIndicatorsGroup extends LinearLayout implements OnSlideChangeL
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, indicatorSize * 2);
         layoutParams.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
-        int margin = getResources().getDimensionPixelSize(R.dimen.default_indicator_margins) * 2;
+        int margin = getResources().getDimensionPixelSize(R.dimen.default_indicator_margins) * 3;
+       // int margin = getResources().getDimensionPixelSize(R.dimen.default_indicator_margins) * 0;
         layoutParams.setMargins(0, 0, 0, margin);
         setLayoutParams(layoutParams);
     }

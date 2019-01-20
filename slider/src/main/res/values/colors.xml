@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_color_type_banner">#ffffff</color>
+    <color name="text_color_title_banner">#fcde64</color>
+    <color name="text_color_artist_banner">#ffffff</color>
+</resources>

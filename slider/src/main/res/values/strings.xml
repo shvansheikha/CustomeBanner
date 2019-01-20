@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">slider</string>
+    <string name="DesBanner">imageOfBannerSlider</string>
 </resources>

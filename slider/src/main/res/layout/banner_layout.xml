@@ -2,21 +2,76 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:paddingRight="8dp"
-    android:paddingLeft="8dp"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#00ffffff"
+    android:layoutDirection="ltr">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        card_view:cardCornerRadius="8dp">
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="15dp"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="8dp">
 
-        <ImageView
-            android:id="@+id/image_banner"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/image_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/DesBanner"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/typeOfBanner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_marginStart="@dimen/margin_top_start_type_banner"
+                android:layout_marginTop="@dimen/margin_top_start_type_banner"
+                android:background="@drawable/back_type_banner"
+                android:paddingStart="@dimen/padding_start_end_type_banner"
+                android:paddingTop="@dimen/padding_top_bottom_type_banner"
+                android:paddingEnd="@dimen/padding_start_end_type_banner"
+                android:paddingBottom="@dimen/padding_top_bottom_type_banner"
+                android:textColor="@color/text_color_type_banner"
+                android:textSize="@dimen/text_size_type_banner" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titleOfBanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:fontFamily="@font/ir_sans_medium"
+                    android:textColor="@color/text_color_title_banner"
+                    android:textSize="@dimen/text_size_title_banner" />
+
+                <TextView
+                    android:id="@+id/artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_marginTop="@dimen/margin_top_start_artist_banner"
+                    android:fontFamily="@font/ir_sans_medium"
+                    android:textColor="@color/text_color_artist_banner"
+                    android:textSize="@dimen/text_size_artist_banner" />
+            </LinearLayout>
+
+        </FrameLayout>
+
 
     </android.support.v7.widget.CardView>
 </LinearLayout>

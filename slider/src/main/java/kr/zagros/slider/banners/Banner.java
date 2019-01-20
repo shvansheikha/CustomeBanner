@@ -66,7 +66,7 @@ public class Banner implements Parcelable {
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Banner> CREATOR = new Parcelable.Creator<Banner>() {
+    public static final Creator<Banner> CREATOR = new Creator<Banner>() {
         @Override
         public Banner createFromParcel(Parcel in) {
             return new Banner(in);

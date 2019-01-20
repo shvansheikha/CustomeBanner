@@ -8,6 +8,7 @@ import android.view.animation.Interpolator;
 
 import java.lang.reflect.Field;
 
+
 public class CustomViewPager extends ViewPager {
     private boolean mustWrapContent = true;
     private ScrollerCustomDuration mScroller = null;
@@ -24,12 +25,12 @@ public class CustomViewPager extends ViewPager {
             int height = 0;
             for (int i = 0; i < getChildCount(); i++) {
                 View child = getChildAt(i);
-                child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+                child.measure(widthMeasureSpec, View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
                 int h = child.getMeasuredHeight();
                 if (h > height) height = h;
             }
 
-            heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
+            heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(height, View.MeasureSpec.EXACTLY);
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
@@ -48,9 +49,6 @@ public class CustomViewPager extends ViewPager {
         }
     }
 
-    /**
-     * Set the factor by which the duration will change
-     */
     public void setScrollDurationFactor(double scrollFactor) {
         mScroller.setScrollDurationFactor(scrollFactor);
     }

@@ -1,18 +1,34 @@
 package kr.zagros.slider.banners;
 
 
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Parcel;
-import android.os.Parcelable;
 
-public class RemoteBanner extends Banner implements Parcelable {
+public class RemoteBanner extends Banner {
     private String url;
+    private boolean isTrack;
+    private String title;
+    private String Artists;
+
     private Drawable placeHolder;
     private Drawable errorDrawable;
 
-    public RemoteBanner(String url) {
+    public RemoteBanner(String url, boolean isTrack, String title, String artists) {
         this.url = url;
+        this.isTrack = isTrack;
+        this.title = title;
+        this.Artists = artists;
+    }
+
+    public boolean isTrack() {
+        return isTrack;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getArtists() {
+        return Artists;
     }
 
     public String getUrl() {
@@ -37,38 +53,11 @@ public class RemoteBanner extends Banner implements Parcelable {
         return this;
     }
 
-    protected RemoteBanner(Parcel in) {
-        url = in.readString();
-        placeHolder = (Drawable) in.readValue(Drawable.class.getClassLoader());
-        errorDrawable = (Drawable) in.readValue(Drawable.class.getClassLoader());
-    }
 
     @Override
     public int describeContents() {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(url);
-        if (placeHolder!=null) {
-            dest.writeParcelable(((BitmapDrawable) placeHolder).getBitmap(), flags);
-        }
-        if (errorDrawable!=null) {
-            dest.writeParcelable(((BitmapDrawable) errorDrawable).getBitmap(), flags);
-        }
-    }
 
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<RemoteBanner> CREATOR = new Parcelable.Creator<RemoteBanner>() {
-        @Override
-        public RemoteBanner createFromParcel(Parcel in) {
-            return new RemoteBanner(in);
-        }
-
-        @Override
-        public RemoteBanner[] newArray(int size) {
-            return new RemoteBanner[size];
-        }
-    };
 }

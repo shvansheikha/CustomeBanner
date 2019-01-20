@@ -4,11 +4,11 @@ package kr.zagros.slider.views.custom;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.widget.ImageView;
 
-public class AdjustableImageView extends android.support.v7.widget.AppCompatImageView {
+public class AdjustableImageView extends androidx.appcompat.widget.AppCompatImageView {
 
     boolean mAdjustViewBounds;
 
@@ -40,12 +40,12 @@ public class AdjustableImageView extends android.support.v7.widget.AppCompatImag
         if (mAdjustViewBounds) {
             int mDrawableWidth = mDrawable.getIntrinsicWidth();
             int mDrawableHeight = mDrawable.getIntrinsicHeight();
-            int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-            int widthSize = MeasureSpec.getSize(widthMeasureSpec);
-            int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-            int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+            int heightSize = View.MeasureSpec.getSize(heightMeasureSpec);
+            int widthSize = View.MeasureSpec.getSize(widthMeasureSpec);
+            int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
+            int widthMode = View.MeasureSpec.getMode(widthMeasureSpec);
 
-            if (heightMode == MeasureSpec.EXACTLY && widthMode != MeasureSpec.EXACTLY) {
+            if (heightMode == View.MeasureSpec.EXACTLY && widthMode != View.MeasureSpec.EXACTLY) {
                 // Fixed Height & Adjustable Width
                 int height = heightSize;
                 int width = height * mDrawableWidth / mDrawableHeight;
@@ -53,7 +53,7 @@ public class AdjustableImageView extends android.support.v7.widget.AppCompatImag
                     setMeasuredDimension(width, height);
                 else
                     setMeasuredDimension(Math.min(width, widthSize), Math.min(height, heightSize));
-            } else if (widthMode == MeasureSpec.EXACTLY && heightMode != MeasureSpec.EXACTLY) {
+            } else if (widthMode == View.MeasureSpec.EXACTLY && heightMode != View.MeasureSpec.EXACTLY) {
                 // Fixed Width & Adjustable Height
                 int width = widthSize;
                 int height = width * mDrawableHeight / mDrawableWidth;

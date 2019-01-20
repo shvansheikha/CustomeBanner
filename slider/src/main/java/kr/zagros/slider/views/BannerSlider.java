@@ -31,6 +31,7 @@ import kr.zagros.slider.views.custom.CustomViewPager;
 import kr.zagros.slider.views.indicators.IndicatorShape;
 import kr.zagros.slider.views.indicators.SlideIndicatorsGroup;
 
+
 public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeListener, IAttributeChange {
     private static final String TAG = "BannerSlider";
     private List<Banner> banners = new ArrayList<>();
@@ -138,7 +139,7 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
                     viewPager.setOverScrollMode(OVER_SCROLL_NEVER);
                     viewPager.setClipToPadding(false);
                    // viewPager.setPageTransformer(true, new DefaultTransformer());
-                    viewPager.setScrollDurationFactor(4);
+                    viewPager.setScrollDurationFactor(2);
                     viewPager.addOnPageChangeListener(BannerSlider.this);
                     addView(viewPager);
                     if (!hideIndicators) {
