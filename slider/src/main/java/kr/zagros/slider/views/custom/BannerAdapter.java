@@ -1,6 +1,7 @@
 package kr.zagros.slider.views.custom;
 
 
+import android.annotation.SuppressLint;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -38,6 +39,7 @@ public class BannerAdapter extends FragmentStatePagerAdapter {
         }
     }
 
+    @SuppressLint("ResourceType")
     @Override
     public Fragment getItem(int position) {
         if (banners.isEmpty() && emptyView > 0) {
