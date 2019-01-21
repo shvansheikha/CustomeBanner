@@ -3,12 +3,13 @@ package kr.zagros.slider.views.custom;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 
-public class AdjustableImageView extends androidx.appcompat.widget.AppCompatImageView {
+public class AdjustableImageView extends AppCompatImageView {
 
     boolean mAdjustViewBounds;
 
