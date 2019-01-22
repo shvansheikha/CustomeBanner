@@ -42,8 +42,7 @@ public class CustomViewPager extends ViewPager {
             Field interpolator = ViewPager.class.getDeclaredField("sInterpolator");
             interpolator.setAccessible(true);
 
-            mScroller = new ScrollerCustomDuration(getContext(),
-                    (Interpolator) interpolator.get(null));
+            mScroller = new ScrollerCustomDuration(getContext(), (Interpolator) interpolator.get(null));
             scroller.set(this, mScroller);
         } catch (Exception e) {
         }
