@@ -6,6 +6,7 @@ This library is for sliding some single track !
 ## How to download
 ### Gradle
 add this line to your module build.gradle :
+
     allprojects {
     		repositories {
     			...
