@@ -1,6 +1,6 @@
 
 # Banner-Slider
-This library is for sliding some single track !
+This library is for show some single track in slider !
 
 
 ## How to download
