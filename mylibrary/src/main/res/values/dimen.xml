@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_dash_indicator_width">12dp</dimen>
+    <dimen name="default_indicator_margins">5dp</dimen>
+    <dimen name="default_indicator_size">8dp</dimen>
+    <dimen name="max_slider_indicator_size">16dp</dimen>
+    <dimen name="round_square_indicator_radius">2dp</dimen>
+
+    <dimen name="margin_top_list_item">0dp</dimen>
+    <dimen name="margin_left_list_item">10dp</dimen>
+
+    <dimen name="margin_top_start_type_banner">10dp</dimen>
+    <dimen name="padding_start_end_type_banner">5dp</dimen>
+    <dimen name="padding_top_bottom_type_banner">3dp</dimen>
+    <dimen name="text_size_type_banner">12sp</dimen>
+
+    <dimen name="text_size_title_banner">11sp</dimen>
+
+    <dimen name="margin_top_start_artist_banner">3dp</dimen>
+    <dimen name="text_size_artist_banner">8sp</dimen>
+
+
+
+</resources>

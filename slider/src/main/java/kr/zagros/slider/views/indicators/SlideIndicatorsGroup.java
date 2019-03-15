@@ -149,8 +149,7 @@ public class SlideIndicatorsGroup extends LinearLayout implements OnSlideChangeL
 
     public void setMustAnimateIndicators(boolean mustAnimateIndicators){
         this.mustAnimateIndicators=mustAnimateIndicators;
-        for (IndicatorShape indicatorShape :
-                indicatorShapes) {
+        for (IndicatorShape indicatorShape : indicatorShapes) {
             indicatorShape.setMustAnimateChange(mustAnimateIndicators);
         }
     }

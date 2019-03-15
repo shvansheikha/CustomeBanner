@@ -45,4 +45,8 @@
     <color name="brown_500" type="color">#795548</color>
     <color name="grey_500" type="color">#9e9e9e</color>
     <color name="blue_grey_500" type="color">#607d8b</color>
+
+    <color name="text_color_type_banner">#ffffff</color>
+    <color name="text_color_title_banner">#fcde64</color>
+    <color name="text_color_artist_banner">#ffffff</color>
 </resources>

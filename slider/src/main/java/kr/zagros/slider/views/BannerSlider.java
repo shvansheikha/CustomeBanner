@@ -24,6 +24,7 @@ import java.util.TimerTask;
 
 import kr.zagros.shwan.slider.R;
 import kr.zagros.slider.banners.Banner;
+import kr.zagros.slider.events.BannerLoadingService;
 import kr.zagros.slider.events.IAttributeChange;
 import kr.zagros.slider.events.OnBannerClickListener;
 import kr.zagros.slider.views.custom.BannerAdapter;
@@ -31,14 +32,13 @@ import kr.zagros.slider.views.custom.CustomViewPager;
 import kr.zagros.slider.views.indicators.IndicatorShape;
 import kr.zagros.slider.views.indicators.SlideIndicatorsGroup;
 
-
 public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeListener, IAttributeChange {
     private static final String TAG = "BannerSlider";
     private List<Banner> banners = new ArrayList<>();
 
     private AppCompatActivity hostActivity;
     private CustomViewPager viewPager;
-
+    public static BannerLoadingService imageLoadingService;
     private OnBannerClickListener onBannerClickListener;
 
     //Custom attributes
@@ -56,6 +56,8 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
     @LayoutRes
     private int emptyView;
     private boolean hideIndicators = false;
+    @LayoutRes
+    private int bannerLayout;
 
     private List<Banner> bannersQueue = new ArrayList<>();
     private boolean setupIsCalled = false;
@@ -125,7 +127,7 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
                     }
                     boolean mustMakeViewPagerWrapContent = getLayoutParams().height == ViewGroup.LayoutParams.WRAP_CONTENT;
 
-                    viewPager = new CustomViewPager(getContext(),mustMakeViewPagerWrapContent);
+                    viewPager = new CustomViewPager(getContext(), mustMakeViewPagerWrapContent);
                     viewPager.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -138,7 +140,7 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
                     viewPager.setPadding(60, 0, 60, 0);
                     viewPager.setOverScrollMode(OVER_SCROLL_NEVER);
                     viewPager.setClipToPadding(false);
-                   // viewPager.setPageTransformer(true, new DefaultTransformer());
+                    // viewPager.setPageTransformer(true, new DefaultTransformer());
                     viewPager.setScrollDurationFactor(2);
                     viewPager.addOnPageChangeListener(BannerSlider.this);
                     addView(viewPager);
@@ -179,15 +181,15 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
 
             BannerAdapter bannerAdapter;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                bannerAdapter = new BannerAdapter(hostActivity.getSupportFragmentManager(), mustLoopSlides, getLayoutDirection(), banners);
+                bannerAdapter = new BannerAdapter(mustLoopSlides, getLayoutDirection(), banners, getContext(),bannerLayout);
             } else {
-                bannerAdapter = new BannerAdapter(hostActivity.getSupportFragmentManager(), mustLoopSlides, banners);
+                bannerAdapter = new BannerAdapter(mustLoopSlides, banners, getContext(),bannerLayout);
             }
 
             viewPager.setAdapter(bannerAdapter);
 
             if (mustLoopSlides) {
-                if (Build.VERSION.SDK_INT>=17){
+                if (Build.VERSION.SDK_INT >= 17) {
                     if (getLayoutDirection() == LAYOUT_DIRECTION_LTR) {
                         viewPager.setCurrentItem(1, false);
                         slideIndicatorsGroup.onSlideChange(0);
@@ -195,7 +197,7 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
                         viewPager.setCurrentItem(banners.size(), false);
                         slideIndicatorsGroup.onSlideChange(banners.size() - 1);
                     }
-                }else {
+                } else {
                     viewPager.setCurrentItem(banners.size(), false);
                     slideIndicatorsGroup.onSlideChange(banners.size() - 1);
                 }
@@ -510,13 +512,27 @@ public class BannerSlider extends FrameLayout implements ViewPager.OnPageChangeL
             }
         }
     }
+    public static void init(BannerLoadingService imageLoadingService) {
+        BannerSlider.imageLoadingService = imageLoadingService;
+    }
 
-    public void removeAllBanners(){
+    public static BannerLoadingService getImageLoadingService() {
+        if (imageLoadingService == null) {
+            throw new IllegalStateException("BannerLoadingService is null, you should call init method first");
+        }
+        return imageLoadingService;
+    }
+
+    public void removeAllBanners() {
         this.banners.clear();
         this.slideIndicatorsGroup.removeAllViews();
         this.slideIndicatorsGroup.setSlides(0);
         invalidate();
         requestLayout();
+    }
+
+    public void setBannerLayout(int bannerLayout){
+        this.bannerLayout=bannerLayout;
     }
 
 }
